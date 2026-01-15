@@ -18,44 +18,22 @@ All work in this repository is performed only in legal lab environments, includi
   - communication ability
 
 
-## Contact 
-- LinkedIn: https://www.linkedin.com/in/dean-dicarlo-ii/
-
-
 ## Progress Tracker (12 Days)
 
 > Each day has a dedicated folder with a README writeup and artifacts.
 
-- [x] **Day 01 — Network Recon with Nmap**
-- [ ] **Day 02 — Packet Analysis with Wireshark**
-- [ ] **Day 03 — Linux Log Triage (SSH auth + suspicious activity)**
-- [ ] **Day 04 — Burp Suite Basics (Proxy + Repeater + basic intercepts)**
-- [ ] **Day 05 — SQL Injection Fundamentals**
-- [ ] **Day 06 — XSS (Stored vs Reflected)**
-- [ ] **Day 07 — IDOR / Broken Access Control**
-- [ ] **Day 08 — Blue Team Detection + Triage Day**
-- [ ] **Day 09 — Directory Traversal**
-- [ ] **Day 10 — Authentication Bypass / Session Logic**
-- [ ] **Day 11 — Nmap Vuln Scanning + Targeted NSE**
-- [ ] **Day 12 — Incident Timeline + Reporting Capstone Writeup**
-
-
-## Writeups Index
-
-These links will work as each day is completed.
-
-- **Day 01:** [writeups/01-network-recon-nmap/](writeups/01-network-recon-nmap/)
-- **Day 02:** [writeups/02-wireshark-http-analysis/](writeups/02-wireshark-http-analysis/)
-- **Day 03:** [writeups/03-linux-log-analysis-ssh/](writeups/03-linux-log-analysis-ssh/)
-- **Day 04:** [writeups/04-burp-suite-basics/](writeups/04-burp-suite-basics/)
-- **Day 05:** [writeups/05-sqli-fundamentals/](writeups/05-sqli-fundamentals/)
-- **Day 06:** [writeups/06-xss-stored-reflected/](writeups/06-xss-stored-reflected/)
-- **Day 07:** [writeups/07-idor-access-control/](writeups/07-idor-access-control/)
-- **Day 08:** [writeups/08-blue-team-detection-triage/](writeups/08-blue-team-detection-triage/)
-- **Day 09:** [writeups/09-directory-traversal/](writeups/09-directory-traversal/)
-- **Day 10:** [writeups/10-authentication-bypass/](writeups/10-authentication-bypass/)
-- **Day 11:** [writeups/11-nmap-vuln-scanning/](writeups/11-nmap-vuln-scanning/)
-- **Day 12:** [writeups/12-incident-timeline-analysis/](writeups/12-incident-timeline-analysis/)
+- [x] **Day 01 — [`Network Recon with Nmap**`](writeups/01-network-recon-nmap/)
+- [ ] **Day 02 — [`Packet Analysis with Wireshark**`](writeups/02-wireshark-http-analysis/)
+- [ ] **Day 03 — [`Linux Log Triage (SSH auth + suspicious activity)**`](writeups/03-linux-log-analysis-ssh/)
+- [ ] **Day 04 — [`Burp Suite Basics (Proxy + Repeater + basic intercepts)**`](writeups/04-burp-suite-basics/)
+- [ ] **Day 05 — [`SQL Injection Fundamentals**`](writeups/05-sqli-fundamentals/)
+- [ ] **Day 06 — [`XSS (Stored vs Reflected)**`](writeups/06-xss-stored-reflected/)
+- [ ] **Day 07 — [`IDOR / Broken Access Control**`](writeups/07-idor-access-control/)
+- [ ] **Day 08 — [`Blue Team Detection + Triage Day**`](writeups/08-blue-team-detection-triage/)
+- [ ] **Day 09 — [`Directory Traversal**`](writeups/09-directory-traversal/)
+- [ ] **Day 10 — [`Authentication Bypass / Session Logic**`](writeups/10-authentication-bypass/)
+- [ ] **Day 11 — [`Nmap Vuln Scanning + Targeted NSE**`](writeups/11-nmap-vuln-scanning/)
+- [ ] **Day 12 — [`Incident Timeline + Reporting Capstone Writeup**`](writeups/12-incident-timeline-analysis/)
 
 
 ## Skills Matrix
@@ -76,3 +54,7 @@ This matrix reflects what each lab day is primarily designed to build.
 | 10 | Auth Bypass | session logic flaws, cookie behavior, auth edge cases | Burp |
 | 11 | Vuln Scanning | NSE usage, vuln validation mindset, reporting evidence | Nmap NSE |
 | 12 | Incident Timeline | event correlation, timeline reconstruction, reporting | analysis |
+
+
+## Contact 
+- LinkedIn: https://www.linkedin.com/in/dean-dicarlo-ii/
