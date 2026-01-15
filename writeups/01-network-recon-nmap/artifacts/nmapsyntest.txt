@@ -1,0 +1,5 @@
+# Nmap 7.94SVN scan initiated Wed Jan 14 18:20:12 2026 as: nmap -vv -Pn -sS -T4 -p 1-5000 -oG nmapsyntest.txt 10.66.148.87
+# Ports scanned: TCP(5000;1-5000) UDP(0;) SCTP(0;) PROTOCOLS(0;)
+Host: 10.66.148.87 ()	Status: Up
+Host: 10.66.148.87 ()	Ports: 	Ignored State: filtered (5000)
+# Nmap done at Wed Jan 14 18:28:36 2026 -- 1 IP address (1 host up) scanned in 504.09 seconds
