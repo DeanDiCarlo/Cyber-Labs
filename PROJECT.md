@@ -3,7 +3,7 @@
 This file tracks completion and keeps the workflow consistent.
 
 ## Daily Checklist
-- [ ] Day 01: Network recon with Nmap
+- [x] Day 01: Network recon with Nmap
 - [ ] Day 02: Wireshark HTTP analysis
 - [ ] Day 03: Linux SSH log triage
 - [ ] Day 04: Burp Suite proxy basics
