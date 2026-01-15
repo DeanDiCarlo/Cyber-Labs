@@ -2,8 +2,10 @@
 
 This repository is a day by day cybersecurity lab portfolio built to practice practical, industry relevant skills and produce interview ready documentation.
 
+
 ## Ethics and Scope
 All work in this repository is performed only in legal lab environments, including local VMs, Docker labs, or authorized training platforms. I do not test real world systems without explicit permission. Any evidence uploaded is sanitized to avoid secrets, tokens, and identifying data.
+
 
 ## Repo Goals
 
@@ -15,12 +17,10 @@ All work in this repository is performed only in legal lab environments, includi
   - technical depth
   - communication ability
 
----
 
 ## Contact 
 - LinkedIn: https://www.linkedin.com/in/dean-dicarlo-ii/
 
----
 
 ## Progress Tracker (12 Days)
 
@@ -39,7 +39,6 @@ All work in this repository is performed only in legal lab environments, includi
 - [ ] **Day 11 — Nmap Vuln Scanning + Targeted NSE**
 - [ ] **Day 12 — Incident Timeline + Reporting Capstone Writeup**
 
----
 
 ## Writeups Index
 
@@ -58,7 +57,6 @@ These links will work as each day is completed.
 - **Day 11:** [writeups/11-nmap-vuln-scanning/](writeups/11-nmap-vuln-scanning/)
 - **Day 12:** [writeups/12-incident-timeline-analysis/](writeups/12-incident-timeline-analysis/)
 
----
 
 ## Skills Matrix
 
