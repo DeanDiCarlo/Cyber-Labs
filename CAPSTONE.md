@@ -26,12 +26,9 @@ This portfolio is a 12 day build focused on practical cybersecurity fundamentals
 | 12 | Incident timeline | correlation, normalization, narrative building | grep, sorting, timeline notes |
 
 ## If You Only Read Three Writeups, Read These
-- Day 01: network recon with Nmap
-- Day 03: Linux SSH log triage
-- Day 12: incident timeline reconstruction
-
-## Interview Ready Stories
-Use these as short stories you can expand on in interviews.
+- [`Day 01: network recon with Nmap`](writeups/01-network-recon-nmap/)
+- [`Day 03: Linux SSH log triage`](writeups/03-linux-log-analysis-ssh/)
+- [`Day 12: incident timeline reconstruction`](writeups/12-incident-timeline-analysis/)
 
 ### Day 01: Recon and prioritization
 - Situation: needed to quickly understand an unknown target in a lab scope
