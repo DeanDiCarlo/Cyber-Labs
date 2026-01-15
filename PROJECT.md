@@ -41,6 +41,3 @@ A day is complete when:
 3. Save artifacts as text outputs and keep them sanitized.
 4. Fill in the README using the template.
 5. Commit and push.
-
-## Notes
-Keep the scope small and finish daily. Consistency is the main signal.
