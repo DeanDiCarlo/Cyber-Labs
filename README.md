@@ -43,3 +43,6 @@ Each daily writeup is designed to be readable as a mini case study:
 - what I concluded
 - how I validated it
 - what I learned
+
+## Contact 
+- LinkedIn: https://www.linkedin.com/in/dean-dicarlo-ii/
