@@ -62,7 +62,7 @@ The `<20>` suffix indicates the file server service; the base name `DESKTOP-L8C5
 
 * `shutchenson`
 
-The username was observed earlier in the infection chain during HTTP traffic associated with the phishing / fake authentication page, not during the malware payload or C2 stages.
+The username was found in kerberos login requests between the domain controller 10.1.17.2 and the password is there too, but encrypted.
 
 
 ## Infection Chain Summary
@@ -80,7 +80,8 @@ The username was observed earlier in the infection chain during HTTP traffic ass
 
 ### Likely Fake Google Authenticator Domain
 
-* `authenticator.org`
+* `authenticatoor.org` Fake Landing Domain
+* `google-authenticator.burleson-appliance.net` Delivery Domain / Redirect
 
 This domain was identified via DNS queries originating from the infected host prior to payload delivery. The domain mimics a legitimate Google service but is not owned by Google.
 
@@ -92,10 +93,12 @@ This domain was identified via DNS queries originating from the infected host pr
 The following IP addresses exhibit sustained post-infection beaconing behavior consistent with command-and-control activity:
 
 * `5.252.153.241`
-* `45.125.66.32`
+
+These IP addresses were much harder to prove C2 association, but after further inspection they only communicate to the infected IP, have no DNS connection, and start communicating at around the same time as the main C2 server.
+* `45.125.66.32` 
 * `45.125.66.252`
 
-These hosts receive repeated HTTP requests containing execution status messages and system activity indicators.
+These hosts receive repeated HTTP/TCP requests containing execution status messages and system activity indicators.
 
 ### Abused Legitimate Infrastructure (Not Attacker-Owned C2)
 
@@ -108,9 +111,11 @@ Although these IPs exhibit high-volume or persistent traffic, packet inspection 
 ## Key Wireshark Filters Used
 
 ```text
+Statistics -> Conversations
 http && ip.src == 10.1.17.215
 dns && ip.src == 10.1.17.215
 nbns
+kerberos (CNameString)
 http.request.uri contains "message"
 http && !(ip.dst == 5.252.153.241)
 ```
