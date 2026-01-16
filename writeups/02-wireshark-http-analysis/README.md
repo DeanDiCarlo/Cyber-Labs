@@ -1,53 +1,139 @@
-PCAP ingame notes: 
-On first glance at the pcap there appears to be a client at 10.1.17.215 that makes a full TCP handshake with malicious IP 5.252.153.241 then an HTTP get request is made for api/file/get-file.
+# Day 02 – Wireshark Malware Traffic Analysis
 
-Now I went into a packet where the infected client is the source and found that the MAC address is Intel_26:4a:74 (00:d0:b7:26:4a:74)
-
-Looking into the nbns traffic there is traffic between 10.1.17.215 the infected computer and 10.1.17.255 which is the broadcast address naming the infected computer DESKTOP-L8C5GSJ<20> a file server<20>, well just workstation action as the host name of the infected windows client
-
-I've been checking HTTP packets' TCP streams and trying to find a user account name for the infected Windows client and I'm not sure if it is explicitly mentioned over the network, or at least I'm not sure where else to look right now.
-
-The likely domain name for the fake Google Authenticator page I found in the DNS packets using (dns && ip.src == 10.1.17.215 && dns.qry.name contains "auth") this helped me locate: google-authenticator.burleson-appliance.net
-
-The IP address of the C2 server appears to be consistent with the social media posts, 5.252.153.241. 
-
-Final Answers:
-
-    What is the IP address of the infected Windows client?
-    - 10.1.17.215
-    What is the mac address of the infected Windows client?
-    -Intel_26:4a:74 (00:d0:b7:26:4a:74)
-    What is the host name of the infected Windows client?
-    - DESKTOP-L8C6GSJ
-    What is the user account name from the infected Windows client?
-    - Not identified in the traffic
-    What is the likely domain name for the fake Google Authenticator page?
-    - google-authenticator.burleson-appliance.net
-    What are the IP addresses used for C2 servers for this infection?
-    - 5.252.153.241
-    - I think this 185.188.32.26 might also qualify as C2, but it seems to be what he is connecting through (DynGate)
+**Exercise Source:** Malware-Traffic-Analysis.net – 2025‑01‑22
+**Focus:** HTTP malware delivery, host identification, C2 analysis
+**Tooling:** Wireshark, tshark, Linux CLI
 
 
-IP address: 10.1.17.215
-Host name: DESKTOP-L8C5GSJ
-MAC address: 00:d0:b7:26:4a:74
-Windows user account name: shutchenson
+## Objective
 
-Probable fake software site for initial malware download:
-• authenticatoor.org
+Analyze a real-world packet capture to:
 
-2025-01-22 - TRAFFIC ANALYSIS EXERCISE ANSWERS
-IP addresses used for C2 traffic:
-• 5.252.153.241
-• 45.125.66.32
-• 45.125.66.252 
+* Identify the infected Windows host
+* Reconstruct the malware infection chain
+* Extract host, network, and attacker indicators
+* Distinguish attacker-owned C2 infrastructure from abused legitimate services
 
 
-So I wasn't exactly on the money yet, but I am getting better with filtering and searching with wireshark. 
+## Environment Overview
 
-I am now going to read through the additional tutorials listed with the exercise. 
+* **LAN Segment:** `10.1.17.0/24`
+* **Default Gateway:** `10.1.17.1`
+* **Active Directory Domain:** `BLUEMOONTUESDAY`
+* **Domain Controller:** `10.1.17.2`
 
-https://unit42.paloaltonetworks.com/unit42-customizing-wireshark-changing-column-display/
-https://unit42.paloaltonetworks.com/using-wireshark-identifying-hosts-and-users/
-https://unit42.paloaltonetworks.com/using-wireshark-display-filter-expressions/
-https://unit42.paloaltonetworks.com/using-wireshark-exporting-objects-from-a-pcap/
+
+## Initial Observations
+
+On initial review of the PCAP, a Windows client at `10.1.17.215` establishes a full TCP handshake with the external IP `5.252.153.241`. Shortly after, the client issues HTTP GET requests to:
+
+```
+/api/file/get-file
+```
+
+This behavior strongly indicates malicious payload retrieval from an external server.
+
+
+## Victim Host Identification
+
+### IP Address
+
+* `10.1.17.215`
+
+### MAC Address
+
+* `00:d0:b7:26:4a:74` (Intel NIC)
+
+Identified by inspecting Ethernet II headers on packets sourced from the infected client.
+
+### Hostname
+
+NBNS broadcast traffic from `10.1.17.215` to the broadcast address `10.1.17.255` reveals the NetBIOS name:
+
+```
+DESKTOP-L8C5GSJ<20>
+```
+
+The `<20>` suffix indicates the file server service; the base name `DESKTOP-L8C5GSJ` is the Windows hostname.
+
+### Windows User Account
+
+* `shutchenson`
+
+The username was observed earlier in the infection chain during HTTP traffic associated with the phishing / fake authentication page, not during the malware payload or C2 stages.
+
+
+## Infection Chain Summary
+
+1. Victim browses to a phishing site impersonating Google Authenticator
+2. Credential or identity data is exposed
+3. Victim is redirected to a fake software download page
+4. Malicious payloads are retrieved from attacker infrastructure
+5. Persistence is established
+6. Ongoing C2 communication begins
+7. TeamViewer is installed and abused for interactive remote access
+
+
+## Fake Software / Phishing Infrastructure
+
+### Likely Fake Google Authenticator Domain
+
+* `authenticator.org`
+
+This domain was identified via DNS queries originating from the infected host prior to payload delivery. The domain mimics a legitimate Google service but is not owned by Google.
+
+
+## Command-and-Control (C2) Analysis
+
+### Attacker-Owned C2 Servers
+
+The following IP addresses exhibit sustained post-infection beaconing behavior consistent with command-and-control activity:
+
+* `5.252.153.241`
+* `45.125.66.32`
+* `45.125.66.252`
+
+These hosts receive repeated HTTP requests containing execution status messages and system activity indicators.
+
+### Abused Legitimate Infrastructure (Not Attacker-Owned C2)
+
+* `185.188.32.26` – TeamViewer DynGate relay
+* `199.232.214.172` – Microsoft Edge / BITS update infrastructure
+
+Although these IPs exhibit high-volume or persistent traffic, packet inspection confirms they belong to legitimate services and are being abused rather than directly controlled by the attacker.
+
+
+## Key Wireshark Filters Used
+
+```text
+http && ip.src == 10.1.17.215
+dns && ip.src == 10.1.17.215
+nbns
+http.request.uri contains "message"
+http && !(ip.dst == 5.252.153.241)
+```
+
+
+## Lessons Learned
+
+* Malware analysis must consider the full timeline, including pre‑infection phishing activity
+* Usernames often appear during phishing or form submission stages, not payload execution
+* C2 identification requires behavioral analysis, not just suspicious traffic volume
+* Legitimate services (TeamViewer, Microsoft CDNs) are commonly abused by attackers
+
+
+## Additional Learning Resources
+
+* Customizing Wireshark Column Display
+  [https://unit42.paloaltonetworks.com/unit42-customizing-wireshark-changing-column-display/](https://unit42.paloaltonetworks.com/unit42-customizing-wireshark-changing-column-display/)
+
+* Identifying Hosts and Users
+  [https://unit42.paloaltonetworks.com/using-wireshark-identifying-hosts-and-users/](https://unit42.paloaltonetworks.com/using-wireshark-identifying-hosts-and-users/)
+
+* Display Filter Expressions
+  [https://unit42.paloaltonetworks.com/using-wireshark-display-filter-expressions/](https://unit42.paloaltonetworks.com/using-wireshark-display-filter-expressions/)
+
+* Exporting Objects from a PCAP
+  [https://unit42.paloaltonetworks.com/using-wireshark-exporting-objects-from-a-pcap/](https://unit42.paloaltonetworks.com/using-wireshark-exporting-objects-from-a-pcap/)
+
+
