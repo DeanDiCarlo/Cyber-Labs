@@ -1,7 +1,9 @@
 # Day 02 – Wireshark Malware Traffic Analysis
 
 **Exercise Source:** Malware-Traffic-Analysis.net – 2025‑01‑22
+
 **Focus:** HTTP malware delivery, host identification, C2 analysis
+
 **Tooling:** Wireshark, Kali Linux CLI
 
 
