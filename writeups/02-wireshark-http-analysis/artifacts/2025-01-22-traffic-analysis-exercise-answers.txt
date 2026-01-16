@@ -1,0 +1,93 @@
+2025-01-22 - TRAFFIC ANALYSIS EXERCISE ANSWERS
+Link to the exercise:
+• https://www.malware-traffic-analysis.net/2025/01/22/index.html
+Links to some tutorials I've written that should help with this exercise:
+• Wireshark Tutorial: Changing Your Column Display
+• Wireshark Tutorial: Identifying Hosts and Users
+• Wireshark Tutorial: Display Filter Expressions
+• Wireshark Tutorial: Exporting Objects from a Pcap
+
+ENVIRONMENT:
+•
+•
+•
+•
+•
+•
+
+LAN segment range: 10.1.17.0/24 (10.1.17.0 through 10.1.17.255)
+Domain: bluemoontuesday.com
+AD environment name: BLUEMOONTUESDAY
+Domain Controller: 10.1.17.2 – WIN-GSH54QLW48D
+LAN segment gateway: 10.1.17.1
+LAN segment broadcast address: 10.1.17.255
+
+BACKGROUND:
+You work as an analyst at a Security Operation Center (SOC). Someone contacts your
+team to report a coworker has downloaded a suspicious file after searching for Google
+Authenticator. The caller provides some information similar to social media posts at:
+• https://www.linkedin.com/posts/unit42_2025-01-22-wednesday-a-malicious-adled-activity-7288213662329192450-ky3V/
+• https://x.com/Unit42_Intel/status/1882448037030584611
+Based on the caller's initial information, you confirm there was an infection. You retrieve a
+pcap of the associated traffic. Reviewing the traffic, you find several indicators matching
+details from a Github page referenced in the above social media posts. After confirming an
+infection happened, you begin writing an incident report.
+
+TASK:
+For this exercise, answer the following questions for your incident report:
+•
+•
+•
+•
+•
+•
+
+What is the IP address of the infected Windows client?
+What is the mac address of the infected Windows client?
+What is the host name of the infected Windows client?
+What is the user account name from the infected Windows client?
+What is the likely domain name for the fake Google Authenticator page?
+What are the IP addresses used for C2 servers for this infection?
+Page 1 of 3
+
+2025-01-22 - TRAFFIC ANALYSIS EXERCISE ANSWERS
+
+Shown above: Screenshot of the fake Google Authenticator page in a web browser.
+
+ANSWERS:
+Victim Details:
+•
+•
+•
+•
+
+IP address: 10.1.17.215
+Host name: DESKTOP-L8C5GSJ
+MAC address: 00:d0:b7:26:4a:74
+Windows user account name: shutchenson
+
+Probable fake software site for initial malware download:
+• authenticatoor.org
+
+Shown above: traffic showing the redirect domain and the final software download page.
+
+Page 2 of 3
+
+2025-01-22 - TRAFFIC ANALYSIS EXERCISE ANSWERS
+IP addresses used for C2 traffic:
+• 5.252.153.241
+• 45.125.66.32
+• 45.125.66.252
+More details on the post infection traffic are at:
+• https://github.com/PaloAltoNetworks/Unit42-timely-threat-intel/blob/main/202501-22-IOCs-for-malware-from-fake-Microsoft-Teams-site.txt
+The infection documented in the above Github page is from a different fake software
+site, and the post-infection check-in URLs have a different number because this is a
+different infected Windows host. Otherwise, all of the post-infection traffic is the same.
+That Github page also has file SHA256 hashes for files sent during the infection that
+you can export from the pcap. This is also information you could add to an incident
+report.
+I’m not sure what this malware is called, but it’s clearly malicious.
+
+Page 3 of 3
+
+
