@@ -10,7 +10,6 @@ All work in this repository is performed only in legal lab environments, includi
 ## Repo Goals
 
 - Build consistent daily security lab practice
-- Produce **interview-ready writeups**
 - Capture evidence artifacts (commands, outputs, findings)
 - Create a clean portfolio that demonstrates:
   - methodology
