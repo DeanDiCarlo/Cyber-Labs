@@ -23,7 +23,7 @@ All work in this repository is performed only in legal lab environments, includi
 > Each day has a dedicated folder with a README writeup and artifacts.
 
 - [x] **Day 01 — [`Network Recon with Nmap**`](writeups/01-network-recon-nmap/)
-- [ ] **Day 02 — [`Packet Analysis with Wireshark**`](writeups/02-wireshark-http-analysis/)
+- [x] **Day 02 — [`Packet Analysis with Wireshark**`](writeups/02-wireshark-http-analysis/)
 - [ ] **Day 03 — [`Linux Log Triage (SSH auth + suspicious activity)**`](writeups/03-linux-log-analysis-ssh/)
 - [ ] **Day 04 — [`Burp Suite Basics (Proxy + Repeater + basic intercepts)**`](writeups/04-burp-suite-basics/)
 - [ ] **Day 05 — [`SQL Injection Fundamentals**`](writeups/05-sqli-fundamentals/)
