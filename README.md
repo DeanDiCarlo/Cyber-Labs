@@ -17,7 +17,7 @@ All work in this repository is performed only in legal lab environments, includi
   - communication ability
 
 
-## Progress Tracker (12 Days)
+## Progress Tracker (12 Labs)
 
 > Each day has a dedicated folder with a README writeup and artifacts.
 
