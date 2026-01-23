@@ -69,6 +69,7 @@ The injection was performed through the TrackingId cookie on the correct endpoin
 ## Tools and Techniques
 - **Burp Suite Proxy** for request discovery and parameter identification
 - **Burp Suite Repeater** for controlled payload testing and timing analysis
+- **Burp Suite Intruder** for multiple payloads controlled testing and timing
 - SQL context analysis including string expressions, UNION compatibility, and database-specific behavior
 - Careful handling of cookies, encoding, and session state
 
@@ -78,3 +79,4 @@ The injection was performed through the TrackingId cookie on the correct endpoin
 - Blind SQL injection remains highly impactful even when errors and output are suppressed
 - CSRF protections and session binding can limit exploitability but do not replace secure query construction
 - Timing anomalies are a strong detection signal for blind SQL injection attempts
+
