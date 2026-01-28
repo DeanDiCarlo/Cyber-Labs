@@ -26,7 +26,7 @@ All work in this repository is performed only in legal lab environments, includi
 - [ ] **Day 03 — [`Linux Log Triage (SSH auth + suspicious activity)**`](writeups/03-linux-log-analysis-ssh/)
 - [x] **Day 04 — [`Burp Suite Basics (Proxy + Repeater + basic intercepts)**`](writeups/04-burp-suite-basics/)
 - [x] **Day 05 — [`SQL Injection Fundamentals**`](writeups/05-sqli-fundamentals/)
-- [ ] **Day 06 — [`XSS (Stored vs Reflected)**`](writeups/06-xss-stored-reflected/)
+- [x] **Day 06 — [`XSS (Stored vs Reflected)**`](writeups/06-xss-stored-reflected/)
 - [ ] **Day 07 — [`IDOR / Broken Access Control**`](writeups/07-idor-access-control/)
 - [ ] **Day 08 — [`Blue Team Detection + Triage Day**`](writeups/08-blue-team-detection-triage/)
 - [ ] **Day 09 — [`Directory Traversal**`](writeups/09-directory-traversal/)
