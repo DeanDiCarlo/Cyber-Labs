@@ -26,7 +26,7 @@ All work in this repository is performed only in legal lab environments, includi
 - [x] **Day 03 — [`Burp Suite Basics (Proxy + Repeater + basic intercepts)`](writeups/03-burp-suite-basics/)**
 - [x] **Day 04 — [`SQL Injection Fundamentals`](writeups/04-sqli-fundamentals/)**
 - [x] **Day 05 — [`XSS (Stored vs Reflected)`](writeups/05-xss-stored-reflected/)**
-- [ ] **Day 06 — [`IDOR / Broken Access Control`](writeups/06-idor-access-control/)**
+- [x] **Day 06 — [`IDOR / Broken Access Control`](writeups/06-idor-access-control/)**
 - [ ] **Day 07 — [`Directory Traversal`](writeups/07-directory-traversal/)**
 - [ ] **Day 08 — [`Authentication Bypass / Session Logic`](writeups/08-authentication-bypass/)**
 - [ ] **Day 09 — [`BTJA Fundamentals: Blue Team Mindset + Detection Concepts`](writeups/09-btja-fundamentals/)**
